@@ -1,43 +1,14 @@
-#include <iostream>
-#include <sstream>
-#include <fstream>
-#include <vector>
-#include <string>
+#include "struktura.hpp"
+#include "funkcje.hpp"
 
-using namespace std;
-
-class Probka
+int main ()
 {
-    public:
-    double x;
-    double y;
-    Probka(double xx, double yy)
-    {
-        x=xx;
-        y=yy;
-    }
-};
-
-vector<Probka> wczytaj_dane(string plik)
-{
-    while (getline(plik,linia))
-    {
-        stringstream ss(linia);
-        ss>>x1;
-        ss.ignore();
-        ss>>x2;
-        dane.push_back(Probka (x1,x2));
-
-
-    }
-
-}
-int main( int argc, char* argv[])
-{
-    double x1,x2;
-    string linia;
-    typedef pair <double, double> Probka;
-    ifstream plik ("sygnal.csv");
-
-    return 0;
+    string o_nazwa, z_nazwa;
+    cout << "Podaj nazwe pliku do odczytu ( wraz z rozszerzeniem ): "; cin >> o_nazwa;
+    cout << "Podaj nazwe pliku do zapisau ( wraz z rozszerzeniem ): "; cin >> z_nazwa;
+    wyswietl(wczytaj(o_nazwa));
+    cout << "Srednia wartosc x: " << srednia(wczytaj(o_nazwa)) << endl;
+    cout << "Minimum wartosci x: " << minimum(wczytaj(o_nazwa)) << ", Maksimum wartosci x: " << maksimum(wczytaj(o_nazwa)) << endl;
+    zapisz(wczytaj(o_nazwa), z_nazwa);
+    cout << "Calka metoda trapezow: " << calkuj(wczytaj(o_nazwa));
 }
